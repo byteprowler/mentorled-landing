@@ -25,7 +25,7 @@ const monthsOfExperience = getMonthsOfExperience();
 
 function LandingSection (){
   return (
-  <section id="#" className="relative min-h-screen flex flex-col overflow-hidden items-center justify-center text-center px-6 text-white">
+  <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden items-center justify-center text-center px-6 text-white">
   <Image 
     src="/byteprowler.jpg"
     alt="hero"
@@ -46,7 +46,7 @@ function LandingSection (){
 
 function AboutSection () {
   return(
-    <motion.section id="#about" className="py-16 px-4"
+    <motion.section id="about" className="py-16 px-4"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -96,7 +96,7 @@ function AboutSection () {
 
 function ContactSection () {
   return (
-    <section id="#contact" className="py-16 px-4 text-center bg-gray-100">
+    <section id="contact" className="py-16 px-4 text-center bg-gray-100">
   <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Me</h2>
   <p className="text-gray-700 mb-4">
     Got a project or collaboration in mind?

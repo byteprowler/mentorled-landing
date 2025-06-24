@@ -181,7 +181,7 @@ export default function Header() {
   }, [])
 
   const navLinks = [
-    { name: "HOME", href: "#home", icon: <Home className="mr-2 w-4 h-4" /> },
+    { name: "HOME", href: "#hero", icon: <Home className="mr-2 w-4 h-4" /> },
     { name: "ABOUT", href: "#about", icon: <Info className="mr-2 w-4 h-4" /> },
     { name: "CONTACT", href: "#contact", icon: <Phone className="mr-2 w-4 h-4" /> }
   ]

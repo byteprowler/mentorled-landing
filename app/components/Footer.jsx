@@ -31,8 +31,8 @@ export default function Footer() {
           >
             <Image 
               src="/logo.png"
-              width={100}
-              height={100}
+              width={64}
+              height={64}
               alt="J & L Powertools Logo"
             />
             <p className="text-gray-300 mt-0">
@@ -50,7 +50,7 @@ export default function Footer() {
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-300">
               <li><Link href="#" className="hover:text-[#FACC15] transition-colors">Home</Link></li>
-              <li><Link href="#about" className="hover:text-[#FACC15] transition-colors">About Me</Link></li>
+              <li><button onClick={() => (document.getElementById("about")?.scrollIntoView({ behavior: "smooth"}))} href="#about" className="hover:text-[#FACC15] transition-colors">About Me</button></li>
               <li><Link href="#contact" className="hover:text-[#FACC15] transition-colors">Contact</Link></li>
             </ul>
           </motion.div>
