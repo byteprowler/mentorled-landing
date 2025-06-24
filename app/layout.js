@@ -1,10 +1,7 @@
-"use client";
-
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "./components/Header";
 import "./globals.css";
 import Footer from "./components/Footer";
-import { AnimatePresence } from "framer-motion";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +21,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <AnimatePresence>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex-col flex min-h-screen`}>
         <Header />
@@ -33,7 +29,6 @@ export default function RootLayout({ children }) {
         </div>
         <Footer />
       </body>
-      </AnimatePresence>
     </html>
   );
 }
