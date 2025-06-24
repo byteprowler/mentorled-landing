@@ -1,103 +1,113 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import Image from "next/image"
+import { motion } from "framer-motion";
+
+export default function Home () {
+  return(
+    <main>
+      <LandingSection />
+      <AboutSection />
+      <ContactSection />
+    </main>
+  )
+}
+
+const getMonthsOfExperience = () => {
+  const startDate = new Date("2024-05-31"); // Your starting date here
+  const now = new Date();
+  const years = now.getFullYear() - startDate.getFullYear();
+  const months = now.getMonth() - startDate.getMonth();
+  return years * 12 + months;
+};
+
+const monthsOfExperience = getMonthsOfExperience();
+
+function LandingSection (){
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  <section id="#" className="relative min-h-screen flex flex-col overflow-hidden items-center justify-center text-center px-6 text-white">
+  <Image 
+    src="/byteprowler.jpg"
+    alt="hero"
+    loading="lazy"
+    fill
+    priority
+    style={{ objectPosition: "center", objectFit: "cover"}}
+  />
+  <div className="z-10">
+    <h1 className="text-4xl md:text-6xl font-bold">Ogo Joshua</h1>
+    <p className="text-lg md:text-2xl mt-4">Fullstack Developer</p>
+  </div>
+  <div className="absolute inset-0 bg-black/40 z-0" />
+</section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  )
+}
+
+function AboutSection () {
+  return(
+    <motion.section id="#about" className="py-16 px-4"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: false }}>
+    <motion.div  
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3, duration: 0.6 }}
+      viewport={{ once: false }}
+      className="max-w-2xl mx-auto text-center">
+      <h2 className="text-3xl font-bold text-indigo-900 mb-8">
+        About Me
+      </h2>
+      <p className="mb-4 mx-auto text-center">Hello! I&apos;m Ogo Joshua, a solo passionate freelance developer dedicated to creatin innovative solutions. I&apos;m focused on delivering high quality software that exceeds potential clients&apos; expectations.
+      </p>
+
+      <p className="mb-4 text-center">My Expertise spans across various domains, including Web development and mobile apps. we believe in the power of technology to transform business and improve lives</p>
+
+    <div className="flex flex-col justify-center">
+      <h2 className="text-xl">Creative <span className="font-semibold">Coding</span> brings ideas to <span>life</span></h2>
+      <p>{monthsOfExperience} Months ago, I began my journey as a frontend web developer. Since then, I&apos;ve been honing my JavaScript skills, working or various projects, and collaborating with me and myself only</p>
+
+      <div className="mt-2 flex mx-auto mb-8 space-x-4">
+        <div className="relative flex-col after:bg-black/10 flex-1 after:w-[1px] after:h-full after:absolute after:top-0 after:right-0">
+          <div className="text-2xl xl:text-4xl font-extrabold mb-2">{monthsOfExperience}+</div>
+          <div className="text-xs uppercase tracking-[1px] leading-[1.4]">Months Of Experience</div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="relative after:bg-black/10 flex flex-col after:w-[1px] after:h-full after:absolute after:top-0 after:right-0">
+          <div className="text-2xl xl:text-4xl font-extrabold mb-2">2+</div>
+          <div className="text-xs uppercase tracking-[1px] leading-[1.4]">Satisfied Clients</div>
+        </div>
+        <div className="relative after:bg-black/10 flex flex-col after:w-[1px] after:h-full after:absolute after:top-0 after:right-0">
+          <div className="text-2xl xl:text-4xl font-extrabold mb-2">4+</div>
+          <div className="text-xs uppercase tracking-[1px] leading-[1.4]">Completed Projects</div>
+        </div>
+        <div className="relative after:bg-black/10 flex flex-col after:w-[1px] after:h-full after:absolute after:top-0 after:right-0">
+          <div className="text-2xl xl:text-4xl font-extrabold mb-2">6+</div>
+          <div className="text-xs uppercase tracking-[1px] leading-[1.4]">Technologies Used</div>
+        </div>
+      </div>
     </div>
-  );
+    </motion.div>
+    </motion.section>
+  )
+}
+
+function ContactSection () {
+  return (
+    <section id="#contact" className="py-16 px-4 text-center bg-gray-100">
+  <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Me</h2>
+  <p className="text-gray-700 mb-4">
+    Got a project or collaboration in mind?
+  </p>
+  <a
+    href="mailto:your@email.com"
+    className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition"
+  >
+    Send an Email
+  </a>
+</section>
+
+  )
 }
