@@ -29,14 +29,13 @@ function LandingSection (){
   <Image 
     src="/byteprowler.jpg"
     alt="hero"
-    loading="lazy"
     fill
     priority
     style={{ objectPosition: "center", objectFit: "cover"}}
   />
   <div className="z-10">
     <h1 className="text-4xl md:text-6xl font-bold">Ogo Joshua</h1>
-    <p className="text-lg md:text-2xl mt-4">Fullstack Developer</p>
+    <p className="text-lg md:text-2xl mt-4">Frontend Web Developer</p>
   </div>
   <div className="absolute inset-0 bg-black/40 z-0" />
 </section>
@@ -102,7 +101,7 @@ function ContactSection () {
     Got a project or collaboration in mind?
   </p>
   <a
-    href="mailto:your@email.com"
+    href="mailto:byteprowler.dev@gmail.com"
     className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition"
   >
     Send an Email

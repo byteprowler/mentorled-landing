@@ -47,6 +47,8 @@ const HamburgerButton = ({ isOpen, toggleSidebar, scrolled }) => {
   return(
     <MotionConfig transition={{ duration: 0.5, ease: "easeInOut" }}>
     <motion.button
+      aria-label='Toggle Menu'
+      aria-expanded={isOpen}
       initial={false}
       animate={isOpen ? "open" : "closed"}
       onClick={toggleSidebar}
@@ -103,15 +105,17 @@ const SideBar = ({ isOpen,setIsOpen, toggleSidebar, navLinks }) => {
 
             <h2 className="text-xl font-bold text-gray-800 mb-6">Menu</h2>
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.name}
-                href={link.href}
-                className="text-black flex items-center hover:text-blue-600 text-lg"
-                onClick={toggleSidebar}
+                onClick={() => {
+                  document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" }), 
+                  toggleSidebar();
+                }}
+                className="text-black flex items-center hover:text-blue-600 text-lg hover:cursor-pointer"
               >
                 {link.icon}
                 {link.name}
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -119,9 +123,9 @@ const SideBar = ({ isOpen,setIsOpen, toggleSidebar, navLinks }) => {
           <div className="space-y-4">
             <div className="space-x-4 flex flex-row items-center justify-center">
               {[
-                { icon: <FaFacebook className='text-blue-700' />, href: 'https://facebook.com'},
-                { icon: <FaMapMarkedAlt className='text-red-700' />, href: 'https://facebook.com'},
-                { icon: <FaWhatsapp className='text-green-500' />, href: 'http://wa.me/2349012345678?text=I%20interested%20in%20your%20products'},
+                { icon: <FaFacebook className='text-blue-700' />, href: '/'},
+                { icon: <FaMapMarkedAlt className='text-red-700' />, href: '/'},
+                { icon: <FaWhatsapp className='text-green-500' />, href: 'http://wa.me/2348090583625' },
               ].map(({icon, href}, idx) => (
                 <motion.a
                 key={idx}
@@ -181,9 +185,9 @@ export default function Header() {
   }, [])
 
   const navLinks = [
-    { name: "HOME", href: "#hero", icon: <Home className="mr-2 w-4 h-4" /> },
-    { name: "ABOUT", href: "#about", icon: <Info className="mr-2 w-4 h-4" /> },
-    { name: "CONTACT", href: "#contact", icon: <Phone className="mr-2 w-4 h-4" /> }
+    { name: "HOME", href: "hero", icon: <Home className="mr-2 w-4 h-4" /> },
+    { name: "ABOUT", href: "about", icon: <Info className="mr-2 w-4 h-4" /> },
+    { name: "CONTACT", href: "contact", icon: <Phone className="mr-2 w-4 h-4" /> }
   ]
 
   if (!mounted) return null
@@ -202,9 +206,9 @@ export default function Header() {
       {/* Desktop Nav */}
       <div className="hidden md:flex space-x-6">
         {navLinks.map((link) => (
-          <Link key={link.name} href={link.href} className="hover:text-indigo-500">
+          <button onClick={() => document.getElementById(link.href)?.scrollIntoView({ behavior: "smooth" })} key={link.name}  className="hover:text-indigo-500 hover:cursor-pointer">
             {link.name}
-          </Link>
+          </button>
         ))}
       </div>
 
