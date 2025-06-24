@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect } from 'react'
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
-import { FaMapMarkedAlt } from 'react-icons/fa';
-import { FaFacebook, FaWhatsapp } from 'react-icons/fa';
-import Image from 'next/image';
-import { Home, Info, Phone, Package } from 'lucide-react'
+import { FaXTwitter, FaTiktok } from "react-icons/fa6";
+import { FaFacebook, FaWhatsapp, FaMapMarkedAlt } from 'react-icons/fa';
+import { Home, Info, Phone } from 'lucide-react'
 import Link from 'next/link';
 
 const VARIANTS = {
@@ -126,6 +125,8 @@ const SideBar = ({ isOpen,setIsOpen, toggleSidebar, navLinks }) => {
                 { icon: <FaFacebook className='text-blue-700' />, href: '/'},
                 { icon: <FaMapMarkedAlt className='text-red-700' />, href: '/'},
                 { icon: <FaWhatsapp className='text-green-500' />, href: 'http://wa.me/2348090583625' },
+                { icon: <FaXTwitter />, href: 'https://x.com/byteprowler' },
+                { icon: <FaTiktok />, href: 'https://www.tiktok.com/@byteprowler' },
               ].map(({icon, href}, idx) => (
                 <motion.a
                 key={idx}

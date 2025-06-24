@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import Link from 'next/link';
+import { FaXTwitter, FaTiktok } from 'react-icons/fa6';
 import {
   FaPhoneAlt,
   FaWhatsapp,
@@ -99,6 +99,24 @@ export default function Footer() {
                 aria-label="Phone"
               >
                 <FaPhoneAlt />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@byteprowler" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gray-700 hover:bg-[#25D366] text-white p-2 rounded-full transition-colors"
+                aria-label="Phone"
+              >
+                <FaTiktok />
+              </a>
+              <a 
+                href="https://x.com/byteprowler" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gray-700 hover:bg-[#25D366] text-white p-2 rounded-full transition-colors"
+                aria-label="Phone"
+              >
+                <FaXTwitter />
               </a>
             </div>
           </motion.div>
